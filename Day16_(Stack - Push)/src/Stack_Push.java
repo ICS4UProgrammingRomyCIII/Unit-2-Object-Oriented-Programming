@@ -3,7 +3,7 @@
  * Created on: 09-March-2020
  * Created for: ICS4U
  * Day #16 (Stack - Push)
- * This program ... Creates a generic stack that has the same .push() method as java.util.stack.
+ * This program ... Creates a generic stack that has the same .push() method as java.util.stack. It adds an object to the top of the stack.
 */
 
 import java.awt.EventQueue;

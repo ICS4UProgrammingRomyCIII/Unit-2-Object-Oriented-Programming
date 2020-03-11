@@ -2,25 +2,24 @@
  * Created by: Romy I. Chu III
  * Created on: 09-March-2020
  * Created for: ICS4U
- * Day #17 (Stack - Pop)
- * This program ... Adding on to day 16. Program now has the .Pop() method which removes the object at the top of the stack.
+ * Day #19 (Stack - Peek & Clear)
+ * This program ... Adding onto day 18. Program can now peek the top value of the stack and clear the whole stack.
 */
 
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.*;
-import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class Stack_Pop extends JFrame {
+public class Stack_PeekClear extends JFrame {
 	// These are variables for the objects that will be created later.
 	private JPanel contentPane;
 	private JTextField txtInput;
 	
 	// Variables and stuff n' Things
-	StackClassPop stackClass = new StackClassPop();
+	StackClass stackClass = new StackClass();
 	static List<Integer> stack = new ArrayList<Integer>(); // This is the stack.
 	
 	// Automatically Created...
@@ -28,7 +27,7 @@ public class Stack_Pop extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Stack_Pop frame = new Stack_Pop();
+					Stack_PeekClear frame = new Stack_PeekClear();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,10 +36,10 @@ public class Stack_Pop extends JFrame {
 		});
 	}
 	// Automatically Created...
-	public Stack_Pop() {
-		setTitle("Stack - Pop");
+	public Stack_PeekClear() {
+		setTitle("Stack - Peek & Clear");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 285, 300);
+		setBounds(100, 100, 330, 349);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -51,16 +50,21 @@ public class Stack_Pop extends JFrame {
 		lblAddInteger.setBounds(10, 11, 144, 14);
 		contentPane.add(lblAddInteger);
 		
+		JLabel lblPeeked = new JLabel("Peeked Value : ");
+		lblPeeked.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
+		lblPeeked.setBounds(10, 283, 231, 14);
+		contentPane.add(lblPeeked);
+		
 		txtInput = new JTextField();
 		txtInput.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-		txtInput.setBounds(164, 8, 96, 20);
+		txtInput.setBounds(164, 8, 140, 20);
 		contentPane.add(txtInput);
 		txtInput.setColumns(10);
 		
 		JTextPane lstDisplay = new JTextPane();
 		lstDisplay.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
 		lstDisplay.setEditable(false);
-		lstDisplay.setBounds(10, 67, 250, 183);
+		lstDisplay.setBounds(10, 89, 294, 183);
 		contentPane.add(lstDisplay);
 		
 		
@@ -86,11 +90,11 @@ public class Stack_Pop extends JFrame {
 			}
 		});
 		btnStackPush.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-		btnStackPush.setBounds(10, 36, 100, 20);
+		btnStackPush.setBounds(10, 36, 144, 20);
 		contentPane.add(btnStackPush);
 		
 		
-		JButton btnStackPop = new JButton("Stack - Pop");
+		JButton btnStackPop = new JButton("Stack - Pop Top");
 		//This Block of code creates an action listener and attaches it to the button. 
 		btnStackPop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -113,7 +117,37 @@ public class Stack_Pop extends JFrame {
 			}
 		});
 		btnStackPop.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
-		btnStackPop.setBounds(115, 36, 95, 20);
+		btnStackPop.setBounds(159, 36, 145, 20);
 		contentPane.add(btnStackPop);
+		
+		JButton btnStackPeekTop = new JButton("Stack - Peek Top");
+		//This Block of code creates an action listener and attaches it to the button. 
+		btnStackPeekTop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// This try-catch loop will catch any errors that occur during runtime.
+				// The procedure will try to...
+				try {
+						lblPeeked.setText("Peeked Value : " + stackClass.peek());
+				  // If an exception occurs during runtime...
+				} catch(Exception exc) {
+					// Tell the user that they reached the end of the stack.
+					JOptionPane.showMessageDialog(null, "The stack is empty!", "An Error Has Occurred", JOptionPane.WARNING_MESSAGE);
+				}
+			}
+		});
+		btnStackPeekTop.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
+		btnStackPeekTop.setBounds(159, 58, 145, 20);
+		contentPane.add(btnStackPeekTop);
+		
+		JButton btnStackClear = new JButton("Stack - Clear");
+		btnStackClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lstDisplay.setText("");
+				stack = stackClass.clear();
+			}
+		});
+		btnStackClear.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
+		btnStackClear.setBounds(10, 58, 144, 20);
+		contentPane.add(btnStackClear);
 	}
 }

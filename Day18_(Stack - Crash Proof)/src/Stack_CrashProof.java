@@ -37,7 +37,7 @@ public class Stack_CrashProof extends JFrame {
 	}
 	// Automatically Created...
 	public Stack_CrashProof() {
-		setTitle("Stack - Push");
+		setTitle("Stack - Crash Proof");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 285, 300);
 		contentPane = new JPanel();
