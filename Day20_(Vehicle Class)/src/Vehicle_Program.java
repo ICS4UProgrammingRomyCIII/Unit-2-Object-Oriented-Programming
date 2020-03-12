@@ -3,7 +3,7 @@
  * Created on: 12-March-2019
  * Created for: ICS4U
  * Day #20 (Vehicle Class)
- * This program...
+ * This program... Has a vehicle class that allows the user to create a car with specific properties,
 */
 
 import java.util.*;
