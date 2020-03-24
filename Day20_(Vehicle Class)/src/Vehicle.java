@@ -1,3 +1,10 @@
+/*
+ * Created by: Romy I. Chu III
+ * Created on: 12-March-2020
+ * Created for: ICS4U
+ * Day #20 (Vehicle Class)
+ * This program ... Has a vehicle class that allows the user to create a car with specific properties.
+*/
 import java.util.ArrayList;
 public class Vehicle {
 	// Variables
